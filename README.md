@@ -44,3 +44,18 @@ git secrets --scan -r *
 As you can see - it found a hard-coded password under server.js file:
 ![image](https://user-images.githubusercontent.com/3126261/152911749-c1fe03a2-e8c5-44dc-975e-a3e331dd1446.png)
 
+# Running Pen Testing for Kubernetes
+
+We will use [kube-hunter](https://github.com/aquasecurity/kube-hunter) to run Kubernetes penetration testing.
+Run the following commands:
+
+```
+kubectl create -f kube-hunter.yaml
+kubectl get pods
+kubectl logs <kube-hunter pod name>
+```
+
+You will see the various tests that kube-hunter performs and their findings.
+
+![image](https://user-images.githubusercontent.com/3126261/152920158-1e08f65d-d7f3-4396-91af-45e82fb30c3b.png)
+
