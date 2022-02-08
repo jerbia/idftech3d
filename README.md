@@ -59,3 +59,23 @@ You will see the various tests that kube-hunter performs and their findings.
 
 ![image](https://user-images.githubusercontent.com/3126261/152920158-1e08f65d-d7f3-4396-91af-45e82fb30c3b.png)
 
+# Runtime Security
+
+We will use [tracee](https://github.com/aquasecurity/tracee) for runtime security on a Linux environment.
+Run the following commands:
+
+```
+docker run --name tracee --rm --privileged  -v /lib/modules:/lib/modules -it aquasec/tracee:0.6.0
+```
+
+You can now run a suspecious actions on the host, like:
+
+```
+strace ls
+```
+
+And look at the Tracee logs, which indicates the suspecious event was identified:
+```
+docker logs tracee
+```
+
